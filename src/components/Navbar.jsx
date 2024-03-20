@@ -1,9 +1,7 @@
 import navLogo from '../images/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { pageLinks } from '../data';
+import { socialicon } from '../dataSocialicon';
 
 const Navbar = () => {
     return (
@@ -15,6 +13,7 @@ const Navbar = () => {
                         <i className="fas fa-bars"></i>
                     </button>
                 </div>
+
                 {/* <!-- left this comment on purpose --> */}
                 <ul className="nav-links" id="nav-links">
                     {
@@ -29,22 +28,20 @@ const Navbar = () => {
                     
                 </ul>
 
+                {/* social icons */}
                 <ul className="nav-icons">
-                    <li>
-                        <a href="https://www.facebook.com" target="_blank" className="nav-icon">
-                            <FontAwesomeIcon icon={faFacebookF} />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.x.com" target="_blank" className="nav-icon">
-                            <FontAwesomeIcon icon={faTwitter} />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.twitter.com" target="_blank" className="nav-icon">
-                            <FontAwesomeIcon icon={faInstagram} />
-                        </a>
-                    </li>
+                    {
+                        socialicon.map((links) => {
+                            return (
+                                <li key={links.id}>
+                                    <a  href={links.link} target="_blank" className="nav-icon">
+                                        <FontAwesomeIcon icon={links.icon}/>
+                                    </a>
+                                </li>
+                            )
+                        })
+
+                    }
                 </ul>
             </div>
         </nav>

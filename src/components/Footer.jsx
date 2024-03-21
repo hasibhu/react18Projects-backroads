@@ -1,10 +1,20 @@
-
+import { pageLinks } from '../Data1';
 
 const Footer = () => {
     return (
         <footer className="section footer">
             <ul className="footer-links">
-                <li>
+                {
+                    pageLinks.map((link) => {
+                        return (
+                            <li key={link.id}>
+                                <a href={link.href} className="nav-link text-2xl font-bold" id='footerName'> {link.text} </a>
+                            </li>
+                        );
+                    })
+                }
+
+                {/* <li>
                     <a href="#home" className="footer-link">home</a>
                 </li>
                 <li>
@@ -15,7 +25,7 @@ const Footer = () => {
                 </li>
                 <li>
                     <a href="#featured" className="footer-link">featured</a>
-                </li>
+                </li> */}
             </ul>
             <ul className="footer-icons">
                 <li>

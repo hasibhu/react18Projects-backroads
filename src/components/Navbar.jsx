@@ -1,6 +1,6 @@
 import navLogo from '../images/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { pageLinks } from '../data';
+import { pageLinks } from '../Data1';
 import { socialicon } from '../dataSocialicon';
 
 const Navbar = () => {

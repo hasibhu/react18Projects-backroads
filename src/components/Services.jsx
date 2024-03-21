@@ -1,14 +1,39 @@
+import Title from "./Title";
+
+import {serviceData} from '../ServiceData'
 
 
 const Services = () => {
     return (
         <section className="section services" id="services">
-            <div className="section-title">
-                <h2>our <span>services</span></h2>
-            </div>
+            
+            <Title title="our" subtitle="services"></Title>
+            
             <div className="section-center services-center">
-                <article className="service">
-                    <span className="service-icon"><i className="fas fa-wallet fa-fw"></i></span>
+
+                {
+                    serviceData.map((data) => {
+                        const { id, img, title, description } = data;
+                        return (
+                            <article  key={id} className="service ">
+                                <span className="service-icon">
+                                    <img className=" h-8" src={img} alt="" />
+                                </span>
+                                <div className="service-info">
+                                    <h4 className="service-title">{title}</h4>
+                                    <p className="service-text">
+                                        {description}
+                                    </p>
+                                </div>
+                            </article>
+                        )
+                    })
+                }
+
+                {/* <article className="service">
+                    <span className="service-icon">
+                        <i className="fas fa-wallet fa-fw"></i>
+                        </span>
                     <div className="service-info">
                         <h4 className="service-title">saving money</h4>
                         <p className="service-text">
@@ -38,7 +63,7 @@ const Services = () => {
                             Asperiores, officia.
                         </p>
                     </div>
-                </article>
+                </article> */}
             </div>
         </section>
     );

@@ -1,38 +1,46 @@
-
+import Title from "./Title";
+import { tours } from '../TourData'
 
 const Tours = () => {
     return (
         <section className="section" id="tours">
-            <div className="section-title">
-                <h2>featured <span>tours</span></h2>
-            </div>
+            
+            {/* dynamic title */}
+            <Title title="featured" subtitle="tours"></Title>
 
             <div className="section-center featured-center">
-                <article className="tour-card">
-                    <div className="tour-img-container">
-                        <img src="./images/tour-1.jpeg" className="tour-img" alt="" />
-                        <p className="tour-date">august 26th, 2020</p>
-                    </div>
-                    <div className="tour-info">
-                        <div className="tour-title">
-                            <h4>Tibet Adventure</h4>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
-                            vitae tempore voluptatum maxime reprehenderit eum quod
-                            exercitationem fugit, qui corporis.
-                        </p>
-                        <div className="tour-footer">
-                            <p>
-                                <span><i className="fas fa-map"></i></span> china
-                            </p>
-                            <p>6 days</p>
-                            <p>from $2100</p>
-                        </div>
-                    </div>
-                </article>
+                {
+                    tours.map((tour) => {
+                        const {id, img, title, date, description, location, time, price } = tour;
+                        return (
+                            <article key={tour.id} className="tour-card">
+                                <div className="tour-img-container">
+                                    <img src={img} className="tour-img" alt="" />
+                                    <p className="tour-date">{date}</p>
+                                </div>
+                                <div className="tour-info">
+                                    <div className="tour-title">
+                                        <h4>{title}</h4>
+                                    </div>
+                                    <p>
+                                        {description}
+                                    </p>
+                                    <div className="tour-footer">
+                                        <p>
+                                            <span><i className="fas fa-map"></i></span> {location}
+                                        </p>
+                                        <p>{time}</p>
+                                        <p>{price}</p>
+                                    </div>
+                                </div>
+                            </article>
+                        )
+                    })
+                }
 
-                <article className="tour-card">
+               
+
+                {/* <article className="tour-card">
                     <div className="tour-img-container">
                         <img src="./images/tour-2.jpeg" className="tour-img" alt="" />
                         <p className="tour-date">october 1th, 2020</p>
@@ -52,9 +60,9 @@ const Tours = () => {
                             <p>from $1400</p>
                         </div>
                     </div>
-                </article>
+                </article> */}
 
-                <article className="tour-card">
+                {/* <article className="tour-card">
                     <div className="tour-img-container">
                         <img src="./images/tour-3.jpeg" className="tour-img" alt="" />
                         <p className="tour-date">september 15th, 2020</p>
@@ -74,9 +82,9 @@ const Tours = () => {
                             <p>from $5000</p>
                         </div>
                     </div>
-                </article>
+                </article> */}
 
-                <article className="tour-card">
+                {/* <article className="tour-card">
                     <div className="tour-img-container">
                         <img src="./images/tour-4.jpeg" className="tour-img" alt="" />
                         <p className="tour-date">december 5th, 2019</p>
@@ -96,7 +104,7 @@ const Tours = () => {
                             <p>from $3300</p>
                         </div>
                     </div>
-                </article>
+                </article> */}
             </div>
         </section>
     );

@@ -15,8 +15,8 @@ function App() {
       <Navbar></Navbar>
       <Hero></Hero>
       <About></About>
-      <Tours></Tours>
       <Services></Services>
+      <Tours></Tours>
       <Footer></Footer>
 
 
